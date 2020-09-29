@@ -2,34 +2,26 @@
 
 package com.darrenfinch.physicalquantities
 
-import com.darrenfinch.physicalquantities.unittypes.Length
-import com.darrenfinch.physicalquantities.unittypes.Volume
-import com.darrenfinch.physicalquantities.unittypes.Weight
-import org.junit.jupiter.api.BeforeEach
+import com.darrenfinch.physicalquantities.units.UnitType
 import org.junit.jupiter.api.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 internal class LengthTest {
-    private lateinit var SUT: Length
-
-    @BeforeEach
-    fun setUp() {
-        SUT = Length()
-    }
+    private var SUT = UnitType.Length
 
     @Test
     fun isCompatibleForConversionTo_returnsTrue_whenGivenLength() {
-        assertTrue(SUT.isCompatibleForConversionTo(Length()))
+        assertTrue(SUT.isCompatibleForConversionTo(UnitType.Length))
     }
 
     @Test
-    fun isCompatibleForConversionTo_returnsFalse_whenGivenWeight() {
-        assertFalse(SUT.isCompatibleForConversionTo(Weight()))
+    fun isCompatibleForConversionTo_returnsFalse_whenGivenMass() {
+        assertFalse(SUT.isCompatibleForConversionTo(UnitType.Mass))
     }
 
     @Test
     fun isCompatibleForConversionTo_returnsFalse_whenGivenVolume() {
-        assertFalse(SUT.isCompatibleForConversionTo(Volume()))
+        assertFalse(SUT.isCompatibleForConversionTo(UnitType.LiquidVolume))
     }
 }
