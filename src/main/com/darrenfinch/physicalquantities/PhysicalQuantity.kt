@@ -1,6 +1,7 @@
 package com.darrenfinch.physicalquantities
 
 import com.darrenfinch.physicalquantities.units.MeasurementUnit
+import com.darrenfinch.physicalquantities.units.imperial.USCustomaryUnit
 import com.darrenfinch.physicalquantities.units.metric.MetricUnit
 
 class PhysicalQuantity(val quantity: Double, val unit: MeasurementUnit) {
@@ -14,16 +15,19 @@ class PhysicalQuantity(val quantity: Double, val unit: MeasurementUnit) {
      * @return  The new PhysicalQuantity with the new measurement unit and transformed quantity.
      */
     fun convert(newUnit: MeasurementUnit): PhysicalQuantity {
-        return if(unit.getUnitType().isCompatibleForConversionTo(newUnit.getUnitType())) {
-            var mutableQuantity = quantity
-            //For now we will keep the algorithm simple and only convert between metric units.
-            if(unit is MetricUnit && newUnit is MetricUnit) {
-                mutableQuantity *= unit.getBaseUnitsConversionTable()[newUnit.getUnitType()]!!
-                mutableQuantity /= newUnit.getBaseUnitsConversionTable()[newUnit.getUnitType()]!!
+        var mutableQuantity = quantity
+        if(unit.getMeasurementType().isCompatibleForConversionTo(newUnit.getMeasurementType())) {
+            if(unit.getMeasurementSystem() != newUnit.getMeasurementSystem()) {
+                mutableQuantity *= unit.getBaseUnitRatio()
+                mutableQuantity *= unit.getTheBaseUnitRatioToConvertTo(newUnit.getMeasurementSystem())
+                mutableQuantity /= newUnit.getBaseUnitRatio()
             }
-            PhysicalQuantity(mutableQuantity, newUnit)
+            else {
+                mutableQuantity *= unit.getBaseUnitRatio()
+                mutableQuantity /= newUnit.getBaseUnitRatio()
+            }
         }
-        else PhysicalQuantity(quantity, unit)
+        return PhysicalQuantity(mutableQuantity, newUnit)
     }
 
     override fun toString(): String {

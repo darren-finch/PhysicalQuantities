@@ -8,7 +8,7 @@ Here is the algorithm for conversions.
     For Imperial to Imperial conversion:
     Step 1: Ensure conversion is possible.
     Step 2: Get ratio of the original unit to the base unit.
-    Step 3: Figure out if the original unit is smaller or bigger than the base unit.
+    Step 3: Figure out if the original unit is smaller or bigger than the base unit by seeing if the base unit ratio is greater or smaller than 1.
     Step 4: Multiply or divide the original quantity by this ratio to convert the original unit to the base unit.
     Step 5: Get ratio of the new unit to the base unit.
     Step 6: Repeat steps 3-4 for the updated quantity and new unit to get the final quantity.

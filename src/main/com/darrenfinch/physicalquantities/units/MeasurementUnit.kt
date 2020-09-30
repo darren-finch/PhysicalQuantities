@@ -1,12 +1,40 @@
 package com.darrenfinch.physicalquantities.units
 
-interface MeasurementUnit {
-    fun getUnitType(): UnitType
-    fun getBaseUnitsConversionTable(): HashMap<UnitType, Double>
+import com.darrenfinch.physicalquantities.MeasurementSystem
+
+abstract class MeasurementUnit {
+    abstract fun getMeasurementType(): MeasurementType
+
+    abstract fun getMeasurementSystem(): MeasurementSystem
+
+    abstract fun getBaseUnitRatio(): Double
+
+    /**
+     * Returns the ratios to convert between the base unit of this measurement system and the base unit of the provided measurement system.
+     */
+    abstract fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double
 
     /**
      * @param plural    Whether the unit is plural (e.g inches is the plural form of inch). Pass true if the quantity related to this unit is greater than one.
      * @return The correct string representation of this unit, accounting for the noun number.
      */
-    fun getUnitAsString(plural: Boolean = false, abbreviated: Boolean = false): String
+    abstract fun getUnitAsString(plural: Boolean = false, abbreviated: Boolean = false): String
+
+    override fun equals(other: Any?): Boolean {
+        return if(other !is MeasurementUnit) {
+            false
+        }
+        else {
+            getMeasurementType() == other.getMeasurementType() &&
+                    getBaseUnitRatio() == other.getBaseUnitRatio()
+        }
+    }
+
+    override fun hashCode(): Int {
+        return javaClass.hashCode()
+    }
+
+    override fun toString(): String {
+        return getUnitAsString()
+    }
 }
