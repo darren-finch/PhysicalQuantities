@@ -19,7 +19,7 @@ class PhysicalQuantity(val quantity: Double, val unit: MeasurementUnit) {
         if(unit.getMeasurementType().isCompatibleForConversionTo(newUnit.getMeasurementType())) {
             if(unit.getMeasurementSystem() != newUnit.getMeasurementSystem()) {
                 mutableQuantity *= unit.getBaseUnitRatio()
-                mutableQuantity *= unit.getTheBaseUnitRatioToConvertTo(newUnit.getMeasurementSystem())
+                mutableQuantity *= baseUnitRatios[unit.getMeasurementSystem().getBaseUnitFor(unit.getMeasurementSystem(), unit.getMeasurementType())]!![newUnit.getMeasurementSystem()]!!
                 mutableQuantity /= newUnit.getBaseUnitRatio()
             }
             else {

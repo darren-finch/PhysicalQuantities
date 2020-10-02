@@ -10,11 +10,6 @@ abstract class MeasurementUnit {
     abstract fun getBaseUnitRatio(): Double
 
     /**
-     * Returns the ratios to convert between the base unit of this measurement system and the base unit of the provided measurement system.
-     */
-    abstract fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double
-
-    /**
      * @param plural    Whether the unit is plural (e.g inches is the plural form of inch). Pass true if the quantity related to this unit is greater than one.
      * @return The correct string representation of this unit, accounting for the noun number.
      */

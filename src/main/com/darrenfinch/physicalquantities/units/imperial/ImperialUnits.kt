@@ -1,6 +1,7 @@
 package com.darrenfinch.physicalquantities.units.imperial
 
 import com.darrenfinch.physicalquantities.MeasurementSystem
+import com.darrenfinch.physicalquantities.units.BaseUnit
 import com.darrenfinch.physicalquantities.units.MeasurementUnit
 import com.darrenfinch.physicalquantities.units.MeasurementType
 
@@ -20,13 +21,6 @@ class Inch : USCustomaryUnit() {
         return 1.0
     }
 
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 0.0254
-            else -> getBaseUnitRatio()
-        }
-    }
-
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
         return "inch${if (plural) "es" else ""}"
     }
@@ -39,13 +33,6 @@ class Foot : USCustomaryUnit() {
 
     override fun getBaseUnitRatio(): Double {
         return 12.0
-    }
-
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 0.3048
-            else -> getBaseUnitRatio()
-        }
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
@@ -62,13 +49,6 @@ class Yard : USCustomaryUnit() {
         return 36.0
     }
 
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 0.9144
-            else -> getBaseUnitRatio()
-        }
-    }
-
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
         return "yard${if (plural) "s" else ""}"
     }
@@ -82,14 +62,6 @@ class Mile : USCustomaryUnit() {
     override fun getBaseUnitRatio(): Double {
         return 63360.0
     }
-
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 1609.34
-            else -> getBaseUnitRatio()
-        }
-    }
-
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
         return "mile${if (plural) "s" else ""}"
@@ -107,13 +79,6 @@ class Ounce : USCustomaryUnit() {
         return 0.0625
     }
 
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 28.3495
-            else -> getBaseUnitRatio()
-        }
-    }
-
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
         return "ounce${if (plural) "es" else ""}"
     }
@@ -128,13 +93,6 @@ class Pound : USCustomaryUnit() {
         return 1.0
     }
 
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 453.592
-            else -> getBaseUnitRatio()
-        }
-    }
-
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
         return "pound${if (plural) "s" else ""}"
     }
@@ -147,13 +105,6 @@ class Ton : USCustomaryUnit() {
 
     override fun getBaseUnitRatio(): Double {
         return 2000.0
-    }
-
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 907184.0
-            else -> getBaseUnitRatio()
-        }
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
@@ -172,13 +123,6 @@ class Cup : USCustomaryUnit() {
         return 1.0
     }
 
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 0.24
-            else -> getBaseUnitRatio()
-        }
-    }
-
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
         return "cup${if (plural) "s" else ""}"
     }
@@ -191,13 +135,6 @@ class Teaspoon : USCustomaryUnit() {
 
     override fun getBaseUnitRatio(): Double {
         return 0.02083
-    }
-
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 0.0049
-            else -> getBaseUnitRatio()
-        }
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
@@ -214,13 +151,6 @@ class Tablespoon : USCustomaryUnit() {
         return 0.0625
     }
 
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 0.0147
-            else -> getBaseUnitRatio()
-        }
-    }
-
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
         return "tablespoon${if (plural) "s" else ""}"
     }
@@ -233,13 +163,6 @@ class FluidOunce : USCustomaryUnit() {
 
     override fun getBaseUnitRatio(): Double {
         return 0.125
-    }
-
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 0.0295
-            else -> getBaseUnitRatio()
-        }
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
@@ -256,13 +179,6 @@ class Pint : USCustomaryUnit() {
         return 2.0
     }
 
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 0.4731
-            else -> getBaseUnitRatio()
-        }
-    }
-
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
         return "pint${if (plural) "s" else ""}"
     }
@@ -277,13 +193,6 @@ class Quart : USCustomaryUnit() {
         return 4.0
     }
 
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 0.9463
-            else -> getBaseUnitRatio()
-        }
-    }
-
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
         return "quart${if (plural) "s" else ""}"
     }
@@ -296,13 +205,6 @@ class Gallon : USCustomaryUnit() {
 
     override fun getBaseUnitRatio(): Double {
         return 16.0
-    }
-
-    override fun getTheBaseUnitRatioToConvertTo(otherMeasurementSystem: MeasurementSystem): Double {
-        return when(otherMeasurementSystem) {
-            MeasurementSystem.Metric -> 3.7854
-            else -> getBaseUnitRatio()
-        }
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
