@@ -1,8 +1,6 @@
 package com.darrenfinch.physicalquantities
 
 import com.darrenfinch.physicalquantities.units.MeasurementUnit
-import com.darrenfinch.physicalquantities.units.imperial.USCustomaryUnit
-import com.darrenfinch.physicalquantities.units.metric.MetricUnit
 
 class PhysicalQuantity(val quantity: Double, val unit: MeasurementUnit) {
     /**

@@ -1,17 +1,17 @@
-package com.darrenfinch.physicalquantities.units.imperial
+package com.darrenfinch.physicalquantities.units.uscustomary
 
 import com.darrenfinch.physicalquantities.MeasurementSystem
-import com.darrenfinch.physicalquantities.units.MeasurementType
 import com.darrenfinch.physicalquantities.units.MeasurementUnit
+import com.darrenfinch.physicalquantities.units.MeasurementType
 
-abstract class ImperialUnit : MeasurementUnit() {
+abstract class USCustomaryUnit : MeasurementUnit() {
     override fun getMeasurementSystem(): MeasurementSystem {
-        return MeasurementSystem.Imperial
+        return MeasurementSystem.USCustomary
     }
 }
 
 //region Length units
-class ImperialInch : ImperialUnit() {
+class USInch : USCustomaryUnit() {
     override fun getMeasurementType(): MeasurementType {
         return MeasurementType.Length
     }
@@ -25,7 +25,7 @@ class ImperialInch : ImperialUnit() {
     }
 }
 
-class ImperialFoot : ImperialUnit() {
+class USFoot : USCustomaryUnit() {
     override fun getMeasurementType(): MeasurementType {
         return MeasurementType.Length
     }
@@ -39,7 +39,7 @@ class ImperialFoot : ImperialUnit() {
     }
 }
 
-class ImperialYard : ImperialUnit() {
+class USYard : USCustomaryUnit() {
     override fun getMeasurementType(): MeasurementType {
         return MeasurementType.Length
     }
@@ -53,35 +53,7 @@ class ImperialYard : ImperialUnit() {
     }
 }
 
-class ImperialChain : ImperialUnit() {
-    override fun getMeasurementType(): MeasurementType {
-        return MeasurementType.Length
-    }
-
-    override fun getBaseUnitRatio(): Double {
-        return 792.0
-    }
-
-    override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return if(abbreviated) "ch" else "chain${if (plural) "s" else ""}"
-    }
-}
-
-class ImperialFurlong : ImperialUnit() {
-    override fun getMeasurementType(): MeasurementType {
-        return MeasurementType.Length
-    }
-
-    override fun getBaseUnitRatio(): Double {
-        return 7920.0
-    }
-
-    override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return if(abbreviated) "fur" else "furlong${if (plural) "s" else ""}"
-    }
-}
-
-class ImperialMile : ImperialUnit() {
+class USMile : USCustomaryUnit() {
     override fun getMeasurementType(): MeasurementType {
         return MeasurementType.Length
     }
@@ -97,7 +69,7 @@ class ImperialMile : ImperialUnit() {
 //endregion
 
 //region Mass
-class ImperialOunce : ImperialUnit() {
+class USOunce : USCustomaryUnit() {
     override fun getMeasurementType(): MeasurementType {
         return MeasurementType.Mass
     }
@@ -111,7 +83,7 @@ class ImperialOunce : ImperialUnit() {
     }
 }
 
-class ImperialPound : ImperialUnit() {
+class USPound : USCustomaryUnit() {
     override fun getMeasurementType(): MeasurementType {
         return MeasurementType.Mass
     }
@@ -125,55 +97,13 @@ class ImperialPound : ImperialUnit() {
     }
 }
 
-class ImperialStone : ImperialUnit() {
+class USTon : USCustomaryUnit() {
     override fun getMeasurementType(): MeasurementType {
         return MeasurementType.Mass
     }
 
     override fun getBaseUnitRatio(): Double {
-        return 14.0
-    }
-
-    override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return if(abbreviated) "st" else "stone${if (plural) "s" else ""}"
-    }
-}
-
-class ImperialQuarter : ImperialUnit() {
-    override fun getMeasurementType(): MeasurementType {
-        return MeasurementType.Mass
-    }
-
-    override fun getBaseUnitRatio(): Double {
-        return 28.0
-    }
-
-    override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return if(abbreviated) "qtr" else "quarter${if (plural) "s" else ""}"
-    }
-}
-
-class ImperialHundredweight : ImperialUnit() {
-    override fun getMeasurementType(): MeasurementType {
-        return MeasurementType.Mass
-    }
-
-    override fun getBaseUnitRatio(): Double {
-        return 112.0
-    }
-
-    override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return if(abbreviated) "cwt" else "hundredweight${if (plural) "s" else ""}"
-    }
-}
-
-class ImperialTon : ImperialUnit() {
-    override fun getMeasurementType(): MeasurementType {
-        return MeasurementType.Mass
-    }
-
-    override fun getBaseUnitRatio(): Double {
-        return 2240.0
+        return 2000.0
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
@@ -183,35 +113,7 @@ class ImperialTon : ImperialUnit() {
 //endregion
 
 //region Liquid volume units
-class ImperialFluidOunce : ImperialUnit() {
-    override fun getMeasurementType(): MeasurementType {
-        return MeasurementType.LiquidVolume
-    }
-
-    override fun getBaseUnitRatio(): Double {
-        return 0.05
-    }
-
-    override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return if(abbreviated) "fl oz" else "fluid ounce${if (plural) "s" else ""}"
-    }
-}
-
-class ImperialGill : ImperialUnit() {
-    override fun getMeasurementType(): MeasurementType {
-        return MeasurementType.LiquidVolume
-    }
-
-    override fun getBaseUnitRatio(): Double {
-        return 0.25
-    }
-
-    override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return if(abbreviated) "gi" else "gill${if (plural) "s" else ""}"
-    }
-}
-
-class ImperialPint : ImperialUnit() {
+class USCup : USCustomaryUnit() {
     override fun getMeasurementType(): MeasurementType {
         return MeasurementType.LiquidVolume
     }
@@ -221,11 +123,53 @@ class ImperialPint : ImperialUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return if(abbreviated) "pt" else "pint${if (plural) "s" else ""}"
+        return if(abbreviated) "c" else "cup${if (plural) "s" else ""}"
     }
 }
 
-class ImperialQuart : ImperialUnit() {
+class USTeaspoon : USCustomaryUnit() {
+    override fun getMeasurementType(): MeasurementType {
+        return MeasurementType.LiquidVolume
+    }
+
+    override fun getBaseUnitRatio(): Double {
+        return 0.02083
+    }
+
+    override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
+        return if(abbreviated) "tsp" else "teaspoon${if (plural) "s" else ""}"
+    }
+}
+
+class USTablespoon : USCustomaryUnit() {
+    override fun getMeasurementType(): MeasurementType {
+        return MeasurementType.LiquidVolume
+    }
+
+    override fun getBaseUnitRatio(): Double {
+        return 0.0625
+    }
+
+    override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
+        return if(abbreviated) "tbsp" else "tablespoon${if (plural) "s" else ""}"
+    }
+}
+
+class USFluidOunce : USCustomaryUnit() {
+    override fun getMeasurementType(): MeasurementType {
+        return MeasurementType.LiquidVolume
+    }
+
+    override fun getBaseUnitRatio(): Double {
+        return 0.125
+    }
+
+    override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
+        return if(abbreviated) "fl oz" else "fluid ounce${if (plural) "s" else ""}"
+    }
+}
+
+class USPint : USCustomaryUnit() {
     override fun getMeasurementType(): MeasurementType {
         return MeasurementType.LiquidVolume
     }
@@ -235,17 +179,31 @@ class ImperialQuart : ImperialUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return if(abbreviated) "qt" else "quart${if (plural) "s" else ""}"
+        return if(abbreviated) "pt" else "pint${if (plural) "s" else ""}"
     }
 }
 
-class ImperialGallon : ImperialUnit() {
+class USQuart : USCustomaryUnit() {
     override fun getMeasurementType(): MeasurementType {
         return MeasurementType.LiquidVolume
     }
 
     override fun getBaseUnitRatio(): Double {
-        return 8.0
+        return 4.0
+    }
+
+    override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
+        return if(abbreviated) "qt" else "quart${if (plural) "s" else ""}"
+    }
+}
+
+class USGallon : USCustomaryUnit() {
+    override fun getMeasurementType(): MeasurementType {
+        return MeasurementType.LiquidVolume
+    }
+
+    override fun getBaseUnitRatio(): Double {
+        return 16.0
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {

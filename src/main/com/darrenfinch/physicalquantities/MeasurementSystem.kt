@@ -2,8 +2,9 @@ package com.darrenfinch.physicalquantities
 
 import com.darrenfinch.physicalquantities.units.MeasurementType
 import com.darrenfinch.physicalquantities.units.MeasurementUnit
-import com.darrenfinch.physicalquantities.units.imperial.*
 import com.darrenfinch.physicalquantities.units.metric.*
+import com.darrenfinch.physicalquantities.units.uscustomary.*
+import com.darrenfinch.physicalquantities.units.imperial.*
 
 enum class MeasurementSystem {
     USCustomary,
@@ -14,19 +15,22 @@ enum class MeasurementSystem {
         return when (measurementType) {
             MeasurementType.Length -> {
                 when(measurementSystem) {
-                    USCustomary -> Inch()
+                    USCustomary -> USInch()
+                    Imperial -> ImperialInch()
                     else -> Meter()
                 }
             }
             MeasurementType.Mass -> {
                 when(measurementSystem) {
-                    USCustomary -> Pound()
+                    USCustomary -> USPound()
+                    Imperial -> ImperialPound()
                     else -> Gram()
                 }
             }
             MeasurementType.LiquidVolume -> {
                 when(measurementSystem) {
-                    USCustomary -> Cup()
+                    USCustomary -> USCup()
+                    Imperial -> ImperialPint()
                     else -> Liter()
                 }
             }
