@@ -22,7 +22,7 @@ class Inch : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return "inch${if (plural) "es" else ""}"
+        return if(abbreviated) "in" else "inch ${if (plural) "es" else ""}"
     }
 }
 
@@ -36,7 +36,7 @@ class Foot : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return if (plural) "feet" else "foot"
+        return if(abbreviated) "ft" else if (plural) "feet" else "foot"
     }
 }
 
@@ -50,7 +50,7 @@ class Yard : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return "yard${if (plural) "s" else ""}"
+        return if(abbreviated) "yd" else "yard${if (plural) "s" else ""}"
     }
 }
 
@@ -80,7 +80,7 @@ class Ounce : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return "ounce${if (plural) "es" else ""}"
+        return if(abbreviated) "oz" else "ounce${if (plural) "es" else ""}"
     }
 }
 
@@ -94,7 +94,7 @@ class Pound : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return "pound${if (plural) "s" else ""}"
+        return if(abbreviated) "lb" else "pound${if (plural) "s" else ""}"
     }
 }
 
@@ -124,7 +124,7 @@ class Cup : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return "cup${if (plural) "s" else ""}"
+        return if(abbreviated) "c" else "cup${if (plural) "s" else ""}"
     }
 }
 
@@ -138,7 +138,7 @@ class Teaspoon : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return "teaspoon${if (plural) "s" else ""}"
+        return if(abbreviated) "tsp" else "teaspoon${if (plural) "s" else ""}"
     }
 }
 
@@ -152,7 +152,7 @@ class Tablespoon : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return "tablespoon${if (plural) "s" else ""}"
+        return if(abbreviated) "tbsp" else "tablespoon${if (plural) "s" else ""}"
     }
 }
 
@@ -166,7 +166,7 @@ class FluidOunce : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return "fluid ounce${if (plural) "s" else ""}"
+        return if(abbreviated) "fl oz" else "fluid ounce${if (plural) "s" else ""}"
     }
 }
 
@@ -180,7 +180,7 @@ class Pint : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return "pint${if (plural) "s" else ""}"
+        return if(abbreviated) "pt" else "pint${if (plural) "s" else ""}"
     }
 }
 
@@ -194,7 +194,7 @@ class Quart : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return "quart${if (plural) "s" else ""}"
+        return if(abbreviated) "qt" else "quart${if (plural) "s" else ""}"
     }
 }
 
@@ -208,7 +208,7 @@ class Gallon : USCustomaryUnit() {
     }
 
     override fun getUnitAsString(plural: Boolean, abbreviated: Boolean): String {
-        return "gallon${if (plural) "s" else ""}"
+        return if(abbreviated) "gal" else "gallon${if (plural) "s" else ""}"
     }
 }
 //endregion
