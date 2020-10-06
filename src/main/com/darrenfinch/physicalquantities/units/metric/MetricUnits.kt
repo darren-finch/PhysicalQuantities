@@ -4,9 +4,12 @@ import com.darrenfinch.physicalquantities.MeasurementSystem
 import com.darrenfinch.physicalquantities.units.MeasurementUnit
 import com.darrenfinch.physicalquantities.units.MeasurementType
 
-abstract class MetricUnit(var prefix: MetricPrefix) : MeasurementUnit() {
+abstract class MetricUnit(val prefix: MetricPrefix) : MeasurementUnit() {
+    /**
+     * The base unit ratio is determined by the prefix multiplier of this unit.
+     */
     override fun getBaseUnitRatio(): Double {
-        return prefix.getBaseUnitRatio()
+        return prefix.getMultiplier()
     }
 
     override fun getMeasurementSystem(): MeasurementSystem {

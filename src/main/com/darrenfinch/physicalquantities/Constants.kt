@@ -4,7 +4,12 @@ import com.darrenfinch.physicalquantities.units.imperial.*
 import com.darrenfinch.physicalquantities.units.uscustomary.*
 import com.darrenfinch.physicalquantities.units.metric.*
 
-val baseUnitRatios = hashMapOf(
+/**
+ * A lookup table for the ratios between base units of different measurement systems.
+ * In PhysicalQuantity's convert() method, this table is used to convert between measurement systems.
+ * E.g a US cup is 0.24 liters. Or you could say an imperial inch is 0.0254 meters.
+ */
+val ratiosBetweenBaseUnitsOfDifferentMeasurementSystems = hashMapOf(
         USInch() to hashMapOf(MeasurementSystem.Metric to 0.0254, MeasurementSystem.Imperial to 1.0),
         USPound() to hashMapOf(MeasurementSystem.Metric to 453.59237, MeasurementSystem.Imperial to 1.0),
         USCup() to hashMapOf(MeasurementSystem.Metric to 0.24, MeasurementSystem.Imperial to 0.4163544008660172),

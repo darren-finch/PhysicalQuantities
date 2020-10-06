@@ -4,6 +4,7 @@ import com.darrenfinch.physicalquantities.MeasurementSystem
 import com.darrenfinch.physicalquantities.units.MeasurementUnit
 import com.darrenfinch.physicalquantities.units.MeasurementType
 
+//Most of the units in the imperial system also appear in the US customary system.
 abstract class USCustomaryUnit : MeasurementUnit() {
     override fun getMeasurementSystem(): MeasurementSystem {
         return MeasurementSystem.USCustomary

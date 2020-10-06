@@ -1,14 +1,14 @@
 package com.darrenfinch.physicalquantities.units.metric
 
 abstract class MetricPrefix {
-    abstract fun getBaseUnitRatio(): Double
+    abstract fun getMultiplier(): Double
     abstract override fun toString(): String
     override fun equals(other: Any?): Boolean {
         return if(other !is MetricPrefix) {
             false
         }
         else {
-            getBaseUnitRatio() == other.getBaseUnitRatio()
+            getMultiplier() == other.getMultiplier()
         }
     }
 
@@ -18,7 +18,7 @@ abstract class MetricPrefix {
 }
 
 class NullPrefix : MetricPrefix() {
-    override fun getBaseUnitRatio(): Double {
+    override fun getMultiplier(): Double {
         return 1.0
     }
 
@@ -28,7 +28,7 @@ class NullPrefix : MetricPrefix() {
 }
 
 class Kilo : MetricPrefix() {
-    override fun getBaseUnitRatio(): Double {
+    override fun getMultiplier(): Double {
         return 1000.0
     }
 
@@ -38,7 +38,7 @@ class Kilo : MetricPrefix() {
 }
 
 class Hecto : MetricPrefix() {
-    override fun getBaseUnitRatio(): Double {
+    override fun getMultiplier(): Double {
         return 100.0
     }
 
@@ -48,7 +48,7 @@ class Hecto : MetricPrefix() {
 }
 
 class Deca : MetricPrefix() {
-    override fun getBaseUnitRatio(): Double {
+    override fun getMultiplier(): Double {
         return 10.0
     }
 
@@ -58,7 +58,7 @@ class Deca : MetricPrefix() {
 }
 
 class Deci : MetricPrefix() {
-    override fun getBaseUnitRatio(): Double {
+    override fun getMultiplier(): Double {
         return 0.1
     }
 
@@ -68,7 +68,7 @@ class Deci : MetricPrefix() {
 }
 
 class Centi : MetricPrefix() {
-    override fun getBaseUnitRatio(): Double {
+    override fun getMultiplier(): Double {
         return 0.01
     }
 
@@ -78,7 +78,7 @@ class Centi : MetricPrefix() {
 }
 
 class Milli : MetricPrefix() {
-    override fun getBaseUnitRatio(): Double {
+    override fun getMultiplier(): Double {
         return 0.001
     }
 

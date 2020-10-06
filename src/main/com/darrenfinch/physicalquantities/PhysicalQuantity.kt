@@ -17,7 +17,7 @@ class PhysicalQuantity(val quantity: Double, val unit: MeasurementUnit) {
         if(unit.getMeasurementType().isCompatibleForConversionTo(newUnit.getMeasurementType())) {
             if(unit.getMeasurementSystem() != newUnit.getMeasurementSystem()) {
                 mutableQuantity *= unit.getBaseUnitRatio()
-                mutableQuantity *= baseUnitRatios[unit.getMeasurementSystem().getBaseUnitFor(unit.getMeasurementSystem(), unit.getMeasurementType())]!![newUnit.getMeasurementSystem()]!!
+                mutableQuantity *= ratiosBetweenBaseUnitsOfDifferentMeasurementSystems[unit.getMeasurementSystem().getBaseUnitFor(unit.getMeasurementSystem(), unit.getMeasurementType())]!![newUnit.getMeasurementSystem()]!!
                 mutableQuantity /= newUnit.getBaseUnitRatio()
             }
             else {
@@ -25,11 +25,19 @@ class PhysicalQuantity(val quantity: Double, val unit: MeasurementUnit) {
                 mutableQuantity /= newUnit.getBaseUnitRatio()
             }
         }
+        else throw IllegalArgumentException("$this and $newUnit do not belong to the same measurement type. Conversion is impossible.")
         return PhysicalQuantity(mutableQuantity, newUnit)
     }
 
+    /**
+     * Use this instead of toString() if you want to get this physical quantity as a string and still have the option to abbreviate the unit name.
+     * Physical quantities are printed like you might expect - "243 grams", "1 foot", "19 kilograms", "5 inches", etc
+     */
+    @Suppress("MemberVisibilityCanBePrivate")
+    fun getAsString(abbreviateUnit: Boolean): String = "$quantity ${unit.getUnitAsString(plural = quantity > 1, abbreviated = abbreviateUnit)}"
+
     override fun toString(): String {
-        return "$quantity ${unit.getUnitAsString(plural = false, abbreviated = false)}"
+        return getAsString(false)
     }
 
     override fun equals(other: Any?): Boolean {
